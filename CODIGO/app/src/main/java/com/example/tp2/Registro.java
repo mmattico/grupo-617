@@ -39,7 +39,7 @@ public class Registro extends AppCompatActivity {
             /// VALIDO SI HAY INTERNET /////////////////////
             if( validar_internet() )
             {
-
+            ///// AGUANTE CHIKA
             }
         }
 
