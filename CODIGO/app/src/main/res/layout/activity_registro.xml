@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/txtNom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/txt_name"
+                android:inputType="textPersonName"
+                android:maxLength="255" />
+
+            <EditText
+                android:id="@+id/txtApe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/txt_lastname"
+                android:inputType="textPersonName"
+                android:maxLength="255" />
+
+            <EditText
+                android:id="@+id/txtDni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/txt_dni"
+                android:inputType="number"
+                android:maxLength="20"
+                android:numeric="integer" />
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/txt_email"
+                android:inputType="textEmailAddress"
+                android:maxLength="255" />
+
+            <EditText
+                android:id="@+id/txtComision"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/txt_commission"
+                android:inputType="number"
+                android:maxLength="20"
+                android:numeric="integer" />
+
+            <EditText
+                android:id="@+id/txtGrupo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/txt_group"
+                android:inputType="number"
+                android:maxLength="20"
+                android:numeric="integer" />
+
+            <EditText
+                android:id="@+id/txtPass1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/txt_pass"
+                android:inputType="textPassword"
+                android:maxLength="255" />
+
+            <EditText
+                android:id="@+id/txtPass2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/txt_repita_pass"
+                android:inputType="textPassword"
+                android:maxLength="255" />
+
+            <Button
+                android:id="@+id/btnReg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="registrarme"
+                android:text="@string/txt_reg" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
