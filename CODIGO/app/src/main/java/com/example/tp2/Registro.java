@@ -85,6 +85,8 @@ public class Registro extends AppCompatActivity {
                     wr.flush();
                     wr.close();
 
+                    urlConnection.connect();
+
                     String response = urlConnection.getResponseMessage();
                     //getResponse(urlConnection);
             } catch (ProtocolException e) {
