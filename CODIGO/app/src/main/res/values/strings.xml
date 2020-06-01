@@ -13,4 +13,11 @@
     <string name="txt_group">GRUPO</string>
     <string name="txt_repita_pass">REPITA LA CONTRASEÑA</string>
 
+    //// JUEGO TAPA PANTALLA ///////////////////////////
+    <string name="txt_titulo_tapa_pantalla">BIENVENIDO A TAPA PANTALLA</string>
+    <string name="txt_tutorial_tapa_pantalla">Como jugar: Inicie el juego y tape la pantalla (esta se volvera de color Rojo). Luego de un tiempo levantela, introduca cuantos segundos cree que paso y comprobe su respuesta.</string>
+    <string name="txt_ini_juego">INICIAR_JUEGO</string>
+    <string name="txt_resultado_juego">COMPRUEBE SU RESPUESTA</string>
+    <string name="txt_hint_segundos">CUANTOS SEGUNDOS PASARON ?</string>
+
 </resources>
