@@ -35,4 +35,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
+    /// A BORRAR /////////
+    public void irTapaPant (View view)
+    {
+        Intent llamador = new Intent(this, JuegoTapaPantalla.class);
+        startActivity(llamador);
+    }
 }

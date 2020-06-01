@@ -6,4 +6,72 @@
     android:layout_height="match_parent"
     tools:context=".JuegoTapaPantalla">
 
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="262dp"
+        android:layout_height="71dp"
+        android:gravity="center"
+        android:text="@string/txt_Tapa_P_titulo"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <TextView
+        android:id="@+id/tutorial"
+        android:layout_width="253dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/txt_Tapa_P_tutorial"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnIni"
+        android:layout_width="248dp"
+        android:layout_height="50dp"
+        android:onClick="iniciarJuego"
+        android:text="@string/txt_Tapa_P_ini"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tutorial"
+        app:layout_constraintVertical_bias="0.083" />
+
+    <EditText
+        android:id="@+id/txtPredSeg"
+        android:layout_width="248dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:hint="@string/txt_Tapa_P_seg_hint"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIni"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnResul"
+        android:layout_width="248dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="57dp"
+        android:onClick="calcularResultado"
+        android:text="@string/txt_Tapa_P_Resolver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPredSeg"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
