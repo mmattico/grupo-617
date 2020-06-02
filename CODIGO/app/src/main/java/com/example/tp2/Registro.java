@@ -1,7 +1,6 @@
 package com.example.tp2;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -11,7 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.gson.Gson;
+import com.example.tp2.retrofit.RequestRegistroLog;
+import com.example.tp2.retrofit.ServicePOST;
 
 public class Registro extends AppCompatActivity {
     //// VARIABLES GLOBALES //////////////////////////////////////////////
@@ -42,6 +42,7 @@ public class Registro extends AppCompatActivity {
             /// VALIDO SI HAY INTERNET /////////////////////
             if( validar_internet() )
             {
+                /*
                 DatosUsr body = new DatosUsr( this.nombre, this.apellido, Integer.valueOf(this.dni), this.email, this.password1, Integer.valueOf(this.comision), Integer.valueOf(this.grupo));
                 Gson gson = new Gson();
 
@@ -49,10 +50,21 @@ public class Registro extends AppCompatActivity {
                 Intent registroIntent = new Intent(Registro.this, RegistroPOST.class);
 
                 registroIntent.putExtra("json",json);
-                startService(registroIntent);
+                startService(registroIntent);*/
+
+                RequestRegistroLog userData = new RequestRegistroLog();
+                userData.setCommission(Integer.valueOf(this.comision));
+                userData.setDni(Integer.valueOf(this.dni));
+                userData.setEmail(this.email);
+                userData.setGroup(Integer.valueOf(this.grupo));
+                userData.setLastname(this.apellido);
+                userData.setName(this.nombre);
+                userData.setPassword(this.password1);
+
+                ServicePOST comunicacionApiRest = new ServicePOST(this);
+                comunicacionApiRest.PostRegitro(userData);
+
             }
-
-
         }
     }
 
@@ -107,6 +119,11 @@ public class Registro extends AppCompatActivity {
         if( ! password1.equals( password2) )
         {
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(  password1.length()< 8 )
+        {
+            Toast.makeText(this, "El campo contraseña debe tener como minimo 8 caracteres", Toast.LENGTH_SHORT).show();
             return false;
         }
         if(  dni.length() == 0 )
