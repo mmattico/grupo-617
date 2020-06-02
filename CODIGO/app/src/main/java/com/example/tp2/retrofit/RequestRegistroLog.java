@@ -1,7 +1,7 @@
 package com.example.tp2.retrofit;
 
 public class RequestRegistroLog {
-    private String env = "TEST";
+    private String env = "DEV";
     private String name;
     private String lastname;
     private int dni;
