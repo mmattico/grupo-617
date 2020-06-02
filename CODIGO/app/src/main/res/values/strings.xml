@@ -12,5 +12,11 @@
     <string name="txt_commission">COMISION</string>
     <string name="txt_group">GRUPO</string>
     <string name="txt_repita_pass">REPITA LA CONTRASEÑA</string>
+    //////   TAPA-PANTALLA ////////////////////////////////////////
+    <string name="txt_Tapa_P_titulo">BIENVENIDO A TAPA PANTALLA</string>
+    <string name="txt_Tapa_P_tutorial">Como Jugar: Inicie el juego y tape la pantalla con su mano(La pantalla se volvera roja). Luego de un tiempo levante la mano, complete cuantos segundos pasaron y toque el boton para obtener el resultado</string>
+    <string name="txt_Tapa_P_ini">INICIAR JUEGO</string>
+    <string name="txt_Tapa_P_seg_hint">CUANTOS SEGUNDOS PASARON ?</string>
+    <string name="txt_Tapa_P_Resolver">OBTENER RESULTADO</string>
 
 </resources>
