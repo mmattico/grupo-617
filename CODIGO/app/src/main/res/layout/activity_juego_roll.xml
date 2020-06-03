@@ -6,4 +6,72 @@
     android:layout_height="match_parent"
     tools:context=".JuegoRoll">
 
+    <TextView
+        android:id="@+id/txtRollTitulo"
+        android:gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:text="@string/txt_Rolling_titulo"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069" />
+
+    <TextView
+        android:id="@+id/txtRollTutorial"
+        android:layout_width="300dp"
+        android:layout_height="122dp"
+        android:text="@string/txt_Rolling_tutorial"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRollTitulo"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <Button
+        android:id="@+id/btnInicioRoll"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:onClick="iniciarJuego"
+        android:text="@string/txt_Rolling_ini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRollTutorial"
+        app:layout_constraintVertical_bias="0.095" />
+
+    <Button
+        android:id="@+id/btnRollResult"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:onClick="calcularResultado"
+        android:text="@string/txt_Rolling_Resolver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCamColPredic"
+        app:layout_constraintVertical_bias="0.221" />
+
+    <EditText
+        android:id="@+id/txtCamColPredic"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/txt_Rolling_Camb_Color_hint"
+        android:inputType="number"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInicioRoll"
+        app:layout_constraintVertical_bias="0.092" />
 </androidx.constraintlayout.widget.ConstraintLayout>

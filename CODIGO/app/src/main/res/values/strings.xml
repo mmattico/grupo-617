@@ -18,5 +18,12 @@
     <string name="txt_Tapa_P_ini">INICIAR JUEGO</string>
     <string name="txt_Tapa_P_seg_hint">CUANTOS SEGUNDOS PASARON ?</string>
     <string name="txt_Tapa_P_Resolver">OBTENER RESULTADO</string>
+    /////  ROLLING ////////////////////////////////////////////////
+    <string name="txt_Rolling_titulo">BIENVENIDO A ROLLING COLOR</string>
+    <string name="txt_Rolling_tutorial">Como Jugar: toque el boton inicio y gire el celular lateralmente para producir cambios de color en la pantalla del celular. Luego de 15 segundos pare e introduzca cuantos cambios de color cree que ocurrieron y verifique su respuesta </string>
+    <string name="txt_Rolling_ini">INICIAR JUEGO</string>
+    <string name="txt_Rolling_Camb_Color_hint">CUANTOS CAMBIOS DE COLOR HUBO?</string>
+    <string name="txt_Rolling_Resolver">VERIFICAR EL RESULTADO</string>
+    ///// /////////////////////////////////////////////////////////////
 
 </resources>

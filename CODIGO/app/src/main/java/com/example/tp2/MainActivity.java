@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     /// A BORRAR /////////
     public void irTapaPant (View view)
     {
-        Intent llamador = new Intent(this, JuegoTapaPantalla.class);
+        Intent llamador = new Intent(this, JuegoRoll.class);
         startActivity(llamador);
     }
 }

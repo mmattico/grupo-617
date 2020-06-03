@@ -16,8 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Historial"></activity>
-        <activity android:name=".JuegoTapaPantalla" />
-        <activity android:name=".JuegoRoll" />
+        <activity android:name=".JuegoTapaPantalla"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".JuegoRoll"
+            android:screenOrientation="portrait"/>
         <activity android:name=".MenuPrincipal" />
         <activity android:name=".Registro" />
         <activity android:name=".MainActivity">
