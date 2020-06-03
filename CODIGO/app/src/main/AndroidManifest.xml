@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service android:name=".ServiceEvento"/>
         <activity android:name=".Historial"></activity>
         <activity android:name=".JuegoTapaPantalla"
             android:screenOrientation="portrait"/>
@@ -29,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".RegistroPOST" />
     </application>
 
 </manifest>
