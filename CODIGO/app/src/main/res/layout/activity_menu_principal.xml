@@ -6,4 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".MenuPrincipal">
 
+    <TextView
+        android:id="@+id/txtMainMenuTitulo"
+        android:layout_width="286dp"
+        android:layout_height="89dp"
+        android:gravity="center"
+        android:text="@string/txt_Menu_titulo"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <Button
+        android:id="@+id/btnTapaPantallaGo"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:onClick="irATapaPantallas"
+        android:text="@string/txt_btn_tapa_pantalla_go"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMainMenuTitulo"
+        app:layout_constraintVertical_bias="0.162" />
+
+    <Button
+        android:id="@+id/btnRollingColorGo"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:onClick="irARollingColor"
+        android:text="@string/txt_btn_rolling_color_go"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTapaPantallaGo"
+        app:layout_constraintVertical_bias="0.196" />
+
+    <Button
+        android:id="@+id/btnHistorialGo"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:onClick="irAHistorial"
+        android:text="@string/txt_btn_historial_sensor_go"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRollingColorGo"
+        app:layout_constraintVertical_bias="0.284" />
 </androidx.constraintlayout.widget.ConstraintLayout>

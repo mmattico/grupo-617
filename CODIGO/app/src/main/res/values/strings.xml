@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Tp2</string>
 
-
+    /////// REGISTRO Y LOGIN \\\\\\\\\\\\\\\\\\\\\\
     <string name="txt_dni">DNI</string>
     <string name="txt_pass">CONTRASEÑA</string>
     <string name="txt_login">LOGIN</string>
@@ -18,12 +18,16 @@
     <string name="txt_Tapa_P_ini">INICIAR JUEGO</string>
     <string name="txt_Tapa_P_seg_hint">CUANTOS SEGUNDOS PASARON ?</string>
     <string name="txt_Tapa_P_Resolver">OBTENER RESULTADO</string>
-    /////  ROLLING ////////////////////////////////////////////////
+    /////  ROLLING COLOR ////////////////////////////////////////////////
     <string name="txt_Rolling_titulo">BIENVENIDO A ROLLING COLOR</string>
     <string name="txt_Rolling_tutorial">Como Jugar: toque el boton inicio y gire el celular lateralmente para producir cambios de color en la pantalla del celular. Luego de 15 segundos pare e introduzca cuantos cambios de color cree que ocurrieron y verifique su respuesta </string>
     <string name="txt_Rolling_ini">INICIAR JUEGO</string>
     <string name="txt_Rolling_Camb_Color_hint">CUANTOS CAMBIOS DE COLOR HUBO?</string>
     <string name="txt_Rolling_Resolver">VERIFICAR EL RESULTADO</string>
-    ///// /////////////////////////////////////////////////////////////
+    ///// MAIN MENU//////////////////////////////////////////////////////
+    <string name="txt_Menu_titulo">BIENVENIDO A SENSOR GAMES</string>
+    <string name="txt_btn_tapa_pantalla_go">JUGAR TAPA PANTALLAS</string>
+    <string name="txt_btn_rolling_color_go">JUGAR ROLLING COLOR</string>
+    <string name="txt_btn_historial_sensor_go">HISTORIAL DE SENSORES</string>
 
 </resources>
