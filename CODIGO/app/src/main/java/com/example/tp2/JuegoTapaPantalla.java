@@ -46,7 +46,6 @@ public class JuegoTapaPantalla extends AppCompatActivity {
         if(sensor == null)
         {
             Toast.makeText(this, "No se pudo encontrar un sensor de proximidad, el cual es necesario para jugar.", Toast.LENGTH_SHORT);
-
             return;
         }
         //// SE INFORMA QUE ES LO QUE SE DEBE HACER CUANDO HAY CAMBIOS EN EL SENSOR DE PROXIMIDAD
@@ -126,6 +125,7 @@ public class JuegoTapaPantalla extends AppCompatActivity {
         getWindow().getDecorView().setBackgroundColor(Color.WHITE);
         pantallaEstabaTapada=false;
         ((TextView)findViewById(R.id.txtPredSeg)).setText("");
+        segundosTranscurridos=0;
     }
 
 
