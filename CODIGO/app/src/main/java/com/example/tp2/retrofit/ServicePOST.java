@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.tp2.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -55,8 +56,7 @@ public class ServicePOST {
 
     }
 
-
-    public void enviarLogin(RequestRegistroLog postRegistroLogin) {
+    public void enviarLogin(RequestRegistroLog postRegistroLogin, final MainActivity principal) {
         Client restAdapter = new Client();
         APIService interfazRestApi = restAdapter.getClient().create(APIService.class);
 
@@ -77,6 +77,7 @@ public class ServicePOST {
                 } else if (response.body().getState().equals("success")) {
                     Toast.makeText(context, "login exitoso", Toast.LENGTH_LONG).show();
                     Token.setToken(response.body().getToken());
+                    principal.irTapaPant();
                 }
 
             }
@@ -88,7 +89,7 @@ public class ServicePOST {
         });
     }
 
-/*  public void registrarEvento(String descripcion, String type_events) {
+    public void registrarEvento(final String descripcion, String type_events) {
 
         RequestEvento postEvento = new RequestEvento();
         postEvento.setEnv("TEST");
@@ -99,7 +100,7 @@ public class ServicePOST {
         Client restAdapter = new Client();
         APIService interfazRestApi = restAdapter.getClient().create(APIService.class);
 
-        Call<ResponseEvento> responseEventoCall = interfazRestApi.sendEvent(postEvento, ConstantesRest.getToken());
+        Call<ResponseEvento> responseEventoCall = interfazRestApi.sendEvent(postEvento, Token.getToken());
         responseEventoCall.enqueue(new Callback<ResponseEvento>() {
             @Override
             public void onResponse(Call<ResponseEvento> call, Response<ResponseEvento> response) {
@@ -109,15 +110,11 @@ public class ServicePOST {
                     }.getType();
                     ResponseError errorResponse = gson.fromJson(response.errorBody().charStream(), type);
                     Log.i("mensajeError", errorResponse.getMsg());
-                    //  Toast.makeText(context, errorResponse.getMsg(), Toast.LENGTH_LONG).show();
                 } else if (response.body().getState().equals("success"))
-                //  Toast.makeText(context,descripcion+ "exitoso",Toast.LENGTH_LONG).show();
-                // Log.i("mensajeSuccess",descripcion+ "exito");
+                 Log.i("mensajeSuccess",descripcion+ "exito");
                 else{
-                    // Log.i("mensajeFallo","fallo "+descripcion);
-                    // Toast.makeText(context,"fallo "+ descripcion ,Toast.LENGTH_LONG).show();
+                     Log.i("mensajeFallo","fallo "+descripcion);
                 }
-
 
             }
 
@@ -127,5 +124,5 @@ public class ServicePOST {
             }
         });
 
-    }*/
+    }
 }

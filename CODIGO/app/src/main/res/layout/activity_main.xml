@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/txtDni"
+        android:id="@+id/txtEmailPrincipal"
         android:layout_width="248dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -17,8 +17,8 @@
         android:layout_marginLeft="65dp"
         android:layout_marginTop="128dp"
         android:ems="10"
-        android:hint="@string/txt_dni"
-        android:inputType="textPersonName"
+        android:hint="@string/txt_email"
+        android:inputType="textEmailAddress"
         android:textSize="18sp" />
 
     <EditText
@@ -47,6 +47,7 @@
         android:layout_marginLeft="66dp"
         android:layout_marginTop="283dp"
         android:text="@string/txt_login"
+        android:onClick="loguearme"
         android:textSize="18sp" />
 
     <Button
@@ -63,11 +64,5 @@
         android:text="@string/txt_reg"
         android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="irTapaPant"
-        android:text="Button" />
 
 </RelativeLayout>
