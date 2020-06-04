@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Historial">
 
+
     <TextView
         android:id="@+id/txtTituloHistorial"
         android:layout_width="300dp"

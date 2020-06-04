@@ -17,14 +17,18 @@
         android:theme="@style/AppTheme">
         <service android:name=".ServiceEvento"/>
         <service android:name=".ServiceHistorial"/>
-        <activity android:name=".Historial"></activity>
+        <activity android:name=".Historial"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".JuegoTapaPantalla"
             android:screenOrientation="portrait"/>
         <activity android:name=".JuegoRoll"
             android:screenOrientation="portrait"/>
-        <activity android:name=".MenuPrincipal" />
-        <activity android:name=".Registro" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MenuPrincipal"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Registro"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
