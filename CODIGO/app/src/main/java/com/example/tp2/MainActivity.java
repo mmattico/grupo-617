@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String password;
     private String email;
+    Intent iServiceEvento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void irTapaPant() {
+
+        iServiceEvento = new Intent(this, ServiceEvento.class);
+        startService(iServiceEvento);
+        ServiceEvento.agregarEvento("el usuario "+email+" ha hecho login", "Login");
+
         Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
         intent.putExtra("USUARIO", email);
         startActivity(intent);

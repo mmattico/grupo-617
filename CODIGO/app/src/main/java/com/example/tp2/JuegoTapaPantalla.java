@@ -1,7 +1,5 @@
 package com.example.tp2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -11,10 +9,11 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class JuegoTapaPantalla extends AppCompatActivity {
 
@@ -81,6 +80,7 @@ public class JuegoTapaPantalla extends AppCompatActivity {
 
                     }
                 }
+                ServiceEvento.agregarEvento(String.valueOf(event.values[0]), "SENSOR DE PROXIMIDAD");
                 guardarInfoEnSharedPreference(event.values[0]);
             }
             /// NO ES NECESARIO TOCARLO PERO LA IMPLEMENTACION ME PIDE QUE POR LO MENOS LO DECLARE

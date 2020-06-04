@@ -116,6 +116,7 @@ public class JuegoRoll extends AppCompatActivity {
                     contadorDeCambiosDeColor++;
                     setPantallaDeColor();
                     guardarInfoEnSharedPreference(event.values[0], event.values[1], event.values[2]);
+                    ServiceEvento.agregarEvento(String.valueOf(event.values[0])+" "+String.valueOf(event.values[1])+" "+String.valueOf(event.values[2]), "ACELEROMETRO");
                 }
 
             }
