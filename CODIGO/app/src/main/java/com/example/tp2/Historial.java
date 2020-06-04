@@ -1,11 +1,12 @@
 package com.example.tp2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Historial extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class Historial extends AppCompatActivity {
     }
 
     private void cargarHistorial() {
-
+        ((TextView)(findViewById(R.id.txtListSensorEv))).setMovementMethod(new ScrollingMovementMethod());
         SharedPreferences preferences = getSharedPreferences( usuario, Context.MODE_PRIVATE);
         int cantReg=preferences.getInt("NREG", NO_JUGO_ANTES );
         if ( cantReg== NO_JUGO_ANTES)

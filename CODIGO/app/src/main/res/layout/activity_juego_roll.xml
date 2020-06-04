@@ -8,9 +8,9 @@
 
     <TextView
         android:id="@+id/txtRollTitulo"
-        android:gravity="center"
         android:layout_width="300dp"
         android:layout_height="70dp"
+        android:gravity="center"
         android:text="@string/txt_Rolling_titulo"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,7 +1,5 @@
 package com.example.tp2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -14,6 +12,11 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class JuegoRoll extends AppCompatActivity {
 
@@ -34,6 +37,7 @@ public class JuegoRoll extends AppCompatActivity {
     private final int TIEMPO_LIMITE_SEG= 15;
     private String usuario;
     private final int NO_JUGO_ANTES=0;
+    private Queue<String> qe = new LinkedList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +72,18 @@ public class JuegoRoll extends AppCompatActivity {
         sensorListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
+               // qe.add(String.valueOf(event.values[0])++String.valueOf(event.values[0])++String.valueOf(event.values[0]));
                 guardarInfoEnSharedPreference(event.values[0], event.values[1], event.values[2]);
+/*
+                Intent registroIntent = new Intent(JuegoRoll.this, ServiceHistorial.class);
+
+                registroIntent.putExtra("usuario",usuario);
+                registroIntent.putExtra("x",event.values[0]);
+                registroIntent.putExtra("y",event.values[1]);
+                registroIntent.putExtra("z",event.values[2]);
+
+                startService(registroIntent);*/
+
                 float x= event.values[0];
                 float z= event.values[2];
                 int cuadranteCalcu = calcularCuadrante(x, z);
@@ -170,6 +185,7 @@ public class JuegoRoll extends AppCompatActivity {
         }
         editor.putString( ""+cantReg, "SENSOR: ACELEROMETRO--> VALORES--> X="+x+" , Y="+y+" ,Z="+z);
         editor.commit();
+
     }
 
 
@@ -196,14 +212,16 @@ public class JuegoRoll extends AppCompatActivity {
 
     private void setPantallaDeColor()
     {
-        if( cuadranteActual== PRIM_CUAD )
+        if( cuadranteActual== PRIM_CUAD ){
             getWindow().getDecorView().setBackgroundColor(Color.GREEN);
+        }
+           // ventana.setBackgroundColor(Color.GREEN);
         else if( cuadranteActual== SEG_CUAD )
             getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
             else if( cuadranteActual== TERC_CUAD )
             getWindow().getDecorView().setBackgroundColor(Color.RED);
                 else if ( cuadranteActual == CUART_CUAD  )
-                        getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+            getWindow().getDecorView().setBackgroundColor(Color.BLUE);
 
     }
 

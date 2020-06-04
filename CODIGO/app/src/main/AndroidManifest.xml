@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service android:name=".ServiceEvento"/>
+        <service android:name=".ServiceHistorial"/>
         <activity android:name=".Historial"></activity>
         <activity android:name=".JuegoTapaPantalla"
             android:screenOrientation="portrait"/>
