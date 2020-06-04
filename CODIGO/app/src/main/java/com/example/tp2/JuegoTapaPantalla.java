@@ -2,6 +2,8 @@ package com.example.tp2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -9,6 +11,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,11 +26,14 @@ public class JuegoTapaPantalla extends AppCompatActivity {
     private boolean gameOn=false;
     private boolean pantallaEstabaTapada=false;
     private int segundosTranscurridos;
+    private String usuario;
+    private final int NO_JUGO_ANTES=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_tapa_pantalla);
+        usuario = getIntent().getStringExtra("USUARIO");
     }
 
     public void iniciarJuego ( View view )
@@ -75,6 +81,7 @@ public class JuegoTapaPantalla extends AppCompatActivity {
 
                     }
                 }
+                guardarInfoEnSharedPreference(event.values[0]);
             }
             /// NO ES NECESARIO TOCARLO PERO LA IMPLEMENTACION ME PIDE QUE POR LO MENOS LO DECLARE
             @Override
@@ -82,7 +89,7 @@ public class JuegoTapaPantalla extends AppCompatActivity {
             }
         };
         /// REGISTRO EL LISTENER PARA QUE EMPIESE A ESCUCHAR
-        sensorManag.registerListener(sensorListener, sensor, MILISEGUNDOS_EN_SEGUNDO/8);
+        sensorManag.registerListener(sensorListener, sensor, MILISEGUNDOS_EN_SEGUNDO/6);
         //// FLAG PARA SABER QUE SE ESTA PREPARADO PARA JUGAR ///////
         gameOn=true;
     }
@@ -128,6 +135,27 @@ public class JuegoTapaPantalla extends AppCompatActivity {
         segundosTranscurridos=0;
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        volverValoresADefault();
+    }
 
-
+    private void guardarInfoEnSharedPreference ( float valorDelSensor  )
+    {
+        SharedPreferences preferences = getSharedPreferences( usuario, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        int cantReg=preferences.getInt("NREG", NO_JUGO_ANTES );
+        if ( cantReg== NO_JUGO_ANTES)
+        {
+            editor.putInt("NREG", 1);
+        }
+        else
+        {
+            cantReg++;
+            editor.putInt("NREG", cantReg);
+        }
+        editor.putString( ""+cantReg, "SENSOR: PROXIMIDAD--> VALOR="+valorDelSensor);
+        editor.commit();
+    }
 }

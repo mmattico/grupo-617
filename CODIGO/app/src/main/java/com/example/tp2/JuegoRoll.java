@@ -2,6 +2,8 @@ package com.example.tp2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -30,12 +32,14 @@ public class JuegoRoll extends AppCompatActivity {
     private int contadorDeCambiosDeColor = 0;
     private long tiempoDeInicio;
     private final int TIEMPO_LIMITE_SEG= 15;
-
+    private String usuario;
+    private final int NO_JUGO_ANTES=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_roll);
+        usuario = getIntent().getStringExtra("USUARIO");
     }
 
     ///// ACCIONES DE LOS BOTONES /////////////////////////////////////////////
@@ -64,6 +68,7 @@ public class JuegoRoll extends AppCompatActivity {
         sensorListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
+                guardarInfoEnSharedPreference(event.values[0], event.values[1], event.values[2]);
                 float x= event.values[0];
                 float z= event.values[2];
                 int cuadranteCalcu = calcularCuadrante(x, z);
@@ -104,7 +109,7 @@ public class JuegoRoll extends AppCompatActivity {
             public void onAccuracyChanged(Sensor sensor, int accuracy) {
             }
         };
-        sensorManag.registerListener(sensorListener, sensor, MILISEGUNDOS_EN_SEGUNDO/32);
+        sensorManag.registerListener(sensorListener, sensor, MILISEGUNDOS_EN_SEGUNDO/3);
     }
 
     public void calcularResultado ( View view )
@@ -145,11 +150,31 @@ public class JuegoRoll extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         volverValoresADefault();
-        getWindow().getDecorView().setBackgroundColor(Color.WHITE);
 
     }
 
     //// FUNCIONES COMPLEMENTARIAS ///////////////////////////////////////////////
+    private void guardarInfoEnSharedPreference ( float x, float y, float z  )
+    {
+        SharedPreferences preferences = getSharedPreferences( usuario, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        int cantReg=preferences.getInt("NREG", NO_JUGO_ANTES );
+        if ( cantReg== NO_JUGO_ANTES)
+        {
+            editor.putInt("NREG", 1);
+        }
+        else
+        {
+            cantReg++;
+            editor.putInt("NREG", cantReg);
+        }
+        editor.putString( ""+cantReg, "SENSOR: ACELEROMETRO--> VALORES--> X="+x+" , Y="+y+" ,Z="+z);
+        editor.commit();
+    }
+
+
+
+
     private int calcularCuadrante( float x, float z )
     {
         if( esta_prim_cuad( x, z ) )

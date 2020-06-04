@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void irTapaPant() {
         Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
+        intent.putExtra("USUARIO", email);
         startActivity(intent);
     }
 }

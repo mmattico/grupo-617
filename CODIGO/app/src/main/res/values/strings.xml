@@ -29,5 +29,6 @@
     <string name="txt_btn_tapa_pantalla_go">JUGAR TAPA PANTALLAS</string>
     <string name="txt_btn_rolling_color_go">JUGAR ROLLING COLOR</string>
     <string name="txt_btn_historial_sensor_go">HISTORIAL DE SENSORES</string>
-
+    ///// HISTORIAL ///////////////////////////////////////////////////////
+    <string name="txt_historial_titulo">HISTORIAL DE LOS SENSORES</string>
 </resources>
