@@ -73,7 +73,6 @@ public class JuegoRoll extends AppCompatActivity {
             @Override
             public void onSensorChanged(SensorEvent event) {
                // qe.add(String.valueOf(event.values[0])++String.valueOf(event.values[0])++String.valueOf(event.values[0]));
-                guardarInfoEnSharedPreference(event.values[0], event.values[1], event.values[2]);
 /*
                 Intent registroIntent = new Intent(JuegoRoll.this, ServiceHistorial.class);
 
@@ -116,6 +115,7 @@ public class JuegoRoll extends AppCompatActivity {
                     cuadranteAnterior = cuadranteActual;
                     contadorDeCambiosDeColor++;
                     setPantallaDeColor();
+                    guardarInfoEnSharedPreference(event.values[0], event.values[1], event.values[2]);
                 }
 
             }
@@ -213,15 +213,15 @@ public class JuegoRoll extends AppCompatActivity {
     private void setPantallaDeColor()
     {
         if( cuadranteActual== PRIM_CUAD ){
-            getWindow().getDecorView().setBackgroundColor(Color.GREEN);
+            JuegoRoll.this.getWindow().getDecorView().setBackgroundColor(Color.GREEN);
         }
            // ventana.setBackgroundColor(Color.GREEN);
         else if( cuadranteActual== SEG_CUAD )
-            getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
+            JuegoRoll.this.getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
             else if( cuadranteActual== TERC_CUAD )
-            getWindow().getDecorView().setBackgroundColor(Color.RED);
+            JuegoRoll.this.getWindow().getDecorView().setBackgroundColor(Color.RED);
                 else if ( cuadranteActual == CUART_CUAD  )
-            getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+            JuegoRoll.this.getWindow().getDecorView().setBackgroundColor(Color.BLUE);
 
     }
 
@@ -232,7 +232,7 @@ public class JuegoRoll extends AppCompatActivity {
         contadorDeCambiosDeColor =0;
         sensorManag.unregisterListener(sensorListener);
         ((TextView) findViewById(R.id.txtCamColPredic) ).setText("");
-        getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+        JuegoRoll.this.getWindow().getDecorView().setBackgroundColor(Color.WHITE);
     }
 
 
