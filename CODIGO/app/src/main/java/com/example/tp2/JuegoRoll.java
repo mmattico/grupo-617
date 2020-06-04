@@ -72,17 +72,6 @@ public class JuegoRoll extends AppCompatActivity {
         sensorListener = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-               // qe.add(String.valueOf(event.values[0])++String.valueOf(event.values[0])++String.valueOf(event.values[0]));
-/*
-                Intent registroIntent = new Intent(JuegoRoll.this, ServiceHistorial.class);
-
-                registroIntent.putExtra("usuario",usuario);
-                registroIntent.putExtra("x",event.values[0]);
-                registroIntent.putExtra("y",event.values[1]);
-                registroIntent.putExtra("z",event.values[2]);
-
-                startService(registroIntent);*/
-
                 float x= event.values[0];
                 float z= event.values[2];
                 int cuadranteCalcu = calcularCuadrante(x, z);
