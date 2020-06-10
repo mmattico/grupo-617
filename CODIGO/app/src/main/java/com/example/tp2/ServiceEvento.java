@@ -10,8 +10,6 @@ import com.example.tp2.retrofit.ServicePOST;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import static java.lang.Thread.sleep;
-
 public class ServiceEvento extends IntentService {
 
     static boolean ejecutando = true;
@@ -33,11 +31,6 @@ public class ServiceEvento extends IntentService {
 
                 ServicePOST comunicacionApiRest = new ServicePOST();
                 comunicacionApiRest.registrarEvento(descripcion, type_event);
-                try {
-                    sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
 
             }
         }

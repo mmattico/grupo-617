@@ -76,11 +76,11 @@ public class JuegoTapaPantalla extends AppCompatActivity {
                         segundosTranscurridos= pasarMilisegundoASegundo(SystemClock.uptimeMillis() - tiempoDeInicio);
                         pantallaEstabaTapada=false;
                         getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+                        ServiceEvento.agregarEvento(String.valueOf(event.values[0]), "SENSOR DE PROXIMIDAD");
                         sensorManag.unregisterListener(sensorListener);
 
                     }
                 }
-                ServiceEvento.agregarEvento(String.valueOf(event.values[0]), "SENSOR DE PROXIMIDAD");
                 guardarInfoEnSharedPreference(event.values[0]);
             }
             /// NO ES NECESARIO TOCARLO PERO LA IMPLEMENTACION ME PIDE QUE POR LO MENOS LO DECLARE

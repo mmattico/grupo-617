@@ -15,5 +15,5 @@ public interface APIService {
     Call<ResponseRegistro> register(@Body RequestRegistroLog user);
 
     @POST("event")
-    Call<ResponseEvento> sendEvent(@Body RequestEvento sensorEvent, @Header("token") String token);
+    Call<ResponseEvento> sendEvent(@Header("token") String token,@Body RequestEvento sensorEvent);
 }

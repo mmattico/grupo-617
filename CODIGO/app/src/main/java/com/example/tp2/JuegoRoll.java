@@ -94,6 +94,7 @@ public class JuegoRoll extends AppCompatActivity {
                 if( tiempoDeJuegoEnSegundos >= TIEMPO_LIMITE_SEG  )
                 {
                     getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+                    ServiceEvento.agregarEvento(String.valueOf(event.values[0])+" "+String.valueOf(event.values[1])+" "+String.valueOf(event.values[2]), "ACELEROMETRO");
                     Toast.makeText(JuegoRoll.this, "SE HAN CUMPLIDO LOS 15 SEGUNDOS. CUANTAS VUELTAS DIO?", Toast.LENGTH_LONG).show();
                     sensorManag.unregisterListener(sensorListener);
                     return;
@@ -105,7 +106,6 @@ public class JuegoRoll extends AppCompatActivity {
                     contadorDeCambiosDeColor++;
                     setPantallaDeColor();
                     guardarInfoEnSharedPreference(event.values[0], event.values[1], event.values[2]);
-                    ServiceEvento.agregarEvento(String.valueOf(event.values[0])+" "+String.valueOf(event.values[1])+" "+String.valueOf(event.values[2]), "ACELEROMETRO");
                 }
 
             }

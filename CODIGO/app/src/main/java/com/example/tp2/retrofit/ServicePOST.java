@@ -14,6 +14,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static java.lang.Thread.sleep;
+
 public class ServicePOST {
 
     private Context context;
@@ -92,7 +94,7 @@ public class ServicePOST {
     public void registrarEvento(final String descripcion, String type_events) {
 
         RequestEvento postEvento = new RequestEvento();
-        postEvento.setEnv("TEST");
+        postEvento.setEnv("DEV");
         postEvento.setDescription(descripcion);
         postEvento.setState("ACTIVO");
         postEvento.setType_events(type_events);
@@ -100,7 +102,15 @@ public class ServicePOST {
         Client restAdapter = new Client();
         APIService interfazRestApi = restAdapter.getClient().create(APIService.class);
 
-        Call<ResponseEvento> responseEventoCall = interfazRestApi.sendEvent(postEvento, Token.getToken());
+        if(type_events.equals("Login")) {
+            try {
+                sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        Call<ResponseEvento> responseEventoCall = interfazRestApi.sendEvent(Token.getToken(),postEvento);
         responseEventoCall.enqueue(new Callback<ResponseEvento>() {
             @Override
             public void onResponse(Call<ResponseEvento> call, Response<ResponseEvento> response) {
@@ -111,16 +121,17 @@ public class ServicePOST {
                     ResponseError errorResponse = gson.fromJson(response.errorBody().charStream(), type);
                     Log.i("mensajeError", errorResponse.getMsg());
                 } else if (response.body().getState().equals("success"))
-                 Log.i("mensajeSuccess",descripcion+ "exito");
+                    Log.i("mensajeSuccess",descripcion+ "exito");
                 else{
-                     Log.i("mensajeFallo","fallo "+descripcion);
+                    Log.i("mensajeFallo","fallo "+descripcion);
                 }
 
             }
 
             @Override
             public void onFailure(Call<ResponseEvento> call, Throwable t) {
-
+                Log.d("Reg error: ", t.getMessage());
+                Toast.makeText(context.getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
 
