@@ -127,7 +127,8 @@ public class JuegoTapaPantalla extends AppCompatActivity {
     /// RESTABLECE LOS VALORES DE CAMPOS A DEFAULT COMO ASI TAMBIEN VARIABLES INTERNAS DEL JUEGO
     private void volverValoresADefault( )
     {
-        sensorManag.unregisterListener(sensorListener);
+        if( sensorManag != null )
+            sensorManag.unregisterListener(sensorListener);
         gameOn=false;
         getWindow().getDecorView().setBackgroundColor(Color.WHITE);
         pantallaEstabaTapada=false;
