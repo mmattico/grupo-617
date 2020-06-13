@@ -220,7 +220,8 @@ public class JuegoRoll extends AppCompatActivity {
     {
         gameOn=false;
         contadorDeCambiosDeColor =0;
-        sensorManag.unregisterListener(sensorListener);
+        if( sensorManag != null )
+            sensorManag.unregisterListener(sensorListener);
         ((TextView) findViewById(R.id.txtCamColPredic) ).setText("");
         JuegoRoll.this.getWindow().getDecorView().setBackgroundColor(Color.WHITE);
     }
