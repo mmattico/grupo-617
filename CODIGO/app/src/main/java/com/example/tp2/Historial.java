@@ -14,6 +14,7 @@ public class Historial extends AppCompatActivity {
     private final int NO_JUGO_ANTES = 0;
     private Handler handCarHist;
     private final int MSJ_HISTORIAL = 1;
+    private  CargarHistorial hiloCarg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,8 @@ public class Historial extends AppCompatActivity {
         ((TextView) (findViewById(R.id.txtListSensorEv))).setMovementMethod(new ScrollingMovementMethod());
         ((TextView) (findViewById(R.id.txtListSensorEv))).setText("Cargando Historial");
         /// INICIO EL HILO QUE ME CARGA EL HISTORIAL EN UN STRING
-        new CargarHistorial().start();
+        hiloCarg=new CargarHistorial();
+        hiloCarg.start();
         //// GENERO EL HANDLER QUE SE OCUPARA DE SETTEAR EL HISTORIAL CUANDO YA SE HALLA GENERADO EL HISTORIAL
         handCarHist = new Handler() {
             @Override
@@ -57,5 +59,11 @@ public class Historial extends AppCompatActivity {
             mensaje.obj = historial;
             Historial.this.handCarHist.sendMessage(mensaje);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        hiloCarg.stop();
     }
 }
