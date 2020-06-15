@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tp2.retrofit.ServicePOST;
+
 public class JuegoTapaPantalla extends AppCompatActivity {
 
     public SensorManager sensorManag;
@@ -76,7 +78,10 @@ public class JuegoTapaPantalla extends AppCompatActivity {
                         segundosTranscurridos= pasarMilisegundoASegundo(SystemClock.uptimeMillis() - tiempoDeInicio);
                         pantallaEstabaTapada=false;
                         getWindow().getDecorView().setBackgroundColor(Color.WHITE);
-                        ServiceEvento.agregarEvento(String.valueOf(event.values[0]), "SENSOR DE PROXIMIDAD");
+
+                        ServicePOST comunicacionApiRest = new ServicePOST(getApplicationContext());
+                        comunicacionApiRest.registrarEvento(String.valueOf(event.values[0]), "SENSOR DE PROXIMIDAD");
+
                         sensorManag.unregisterListener(sensorListener);
 
                     }

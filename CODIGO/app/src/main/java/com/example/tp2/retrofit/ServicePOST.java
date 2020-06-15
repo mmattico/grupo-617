@@ -14,8 +14,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static java.lang.Thread.sleep;
-
 public class ServicePOST {
 
     private Context context;
@@ -109,14 +107,6 @@ public class ServicePOST {
         Client restAdapter = new Client();
         APIService interfazRestApi = restAdapter.getClient().create(APIService.class);
 
-        if(type_events.equals("Login")) {
-            try {
-                sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        //// SE GENERA PREPARA EL MENSAJE
         Call<ResponseEvento> responseEventoCall = interfazRestApi.sendEvent(Token.getToken(),postEvento);
         //// SE ENCOLA EL MENSAJE
         responseEventoCall.enqueue(new Callback<ResponseEvento>() {
