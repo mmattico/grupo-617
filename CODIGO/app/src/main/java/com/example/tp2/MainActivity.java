@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         if(  validarCampos()  ) {
             /// VALIDO SI HAY INTERNET /////////////////////
             if (validar_internet()) {
-
+                /// CARGO EL MAIL Y CONTRASEÑA EN UNA ESTRUCTURA
                 RequestRegistroLog userData = new RequestRegistroLog();
                 userData.setEmail(this.email);
                 userData.setPassword(this.password);
@@ -86,12 +86,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void irTapaPant() {
+    public void iniciar_Servicio_Reg_Eventos_E_Ir_Menu_Principal() {
 
+        //// SE CREA UN SERVICIO DE REGISTRAR EVENTOS Y SE REGISTRA EL LOGIN
         iServiceEvento = new Intent(this, ServiceEvento.class);
         startService(iServiceEvento);
         ServiceEvento.agregarEvento("el usuario "+email+" ha hecho login", "Login");
-
+        //// SE INICIA EL MENU PRINCIPAL
         Intent intent = new Intent(MainActivity.this, MenuPrincipal.class);
         intent.putExtra("USUARIO", email);
         startActivity(intent);

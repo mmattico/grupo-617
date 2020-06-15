@@ -59,15 +59,20 @@ public class ServicePOST {
     }
 
     public void enviarLogin(RequestRegistroLog postRegistroLogin, final MainActivity principal) {
+        ///// CREA UNA ESPECIE DE ESTRUCTURA DE COMO VA A SER LA COMUNICACION ENTRE RETROFIT Y LA API ///////////////
         Client restAdapter = new Client();
+        //// SE ESTABLECEN LAS OPERACIONES QUE VA A HACER RETROFIT SOBRE LA API
         APIService interfazRestApi = restAdapter.getClient().create(APIService.class);
-
+        ////  SE SE DEFINE LA PETRICION AL COMPLETO ///////////////////////////
         Call<ResponseLogin> responseLoginCall = interfazRestApi.login(postRegistroLogin);
+        //// SE ENCOLA LA PETICION ///////////////////////////////////////////////
         responseLoginCall.enqueue(new Callback<ResponseLogin>() {
+            //// FUNCION QUE SE ACTIVA CUANDO SE RECIBE LA RESPUESTA DE LA API, TANTO DE ERROR COMO SI ESTA OK
             @Override
             public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
 
                 if (response.body() == null) {
+                    /// SI LA PETICION DIO ERROR ENTONCES LO CAPTURAMOS Y MANDAMOS A UN LOG E INFORMAMOS POR PANTALLA
                     Gson gson = new Gson();
                     Type type = new TypeToken<ResponseError>() {
                     }.getType();
@@ -77,9 +82,10 @@ public class ServicePOST {
                     Toast.makeText(context, errorResponse.getMsg(), Toast.LENGTH_LONG).show();
 
                 } else if (response.body().getState().equals("success")) {
+                    /// SI SE PUDO COMPLETAR LA OPERACION SE ACCEDE AL MEN
                     Toast.makeText(context, "login exitoso", Toast.LENGTH_LONG).show();
                     Token.setToken(response.body().getToken());
-                    principal.irTapaPant();
+                    principal.iniciar_Servicio_Reg_Eventos_E_Ir_Menu_Principal();
                 }
 
             }
@@ -99,6 +105,7 @@ public class ServicePOST {
         postEvento.setState("ACTIVO");
         postEvento.setType_events(type_events);
 
+        /// SE PREPARAN LAS ESTRUCTURAS DE RETROFIT PARA EL MENSAJE
         Client restAdapter = new Client();
         APIService interfazRestApi = restAdapter.getClient().create(APIService.class);
 
@@ -109,11 +116,14 @@ public class ServicePOST {
                 e.printStackTrace();
             }
         }
-
+        //// SE GENERA PREPARA EL MENSAJE
         Call<ResponseEvento> responseEventoCall = interfazRestApi.sendEvent(Token.getToken(),postEvento);
+        //// SE ENCOLA EL MENSAJE
         responseEventoCall.enqueue(new Callback<ResponseEvento>() {
+            ///// METODO CUANDO SE EJECUTA CUANDO SE RECIBE LA RESPUESTA DEL REGISTRO DE EVENTOS
             @Override
             public void onResponse(Call<ResponseEvento> call, Response<ResponseEvento> response) {
+
                 if (response.body() == null) {
                     Gson gson = new Gson();
                     Type type = new TypeToken<ResponseError>() {
@@ -125,7 +135,6 @@ public class ServicePOST {
                 else{
                     Log.i("mensajeFallo","fallo "+descripcion);
                 }
-
             }
 
             @Override
