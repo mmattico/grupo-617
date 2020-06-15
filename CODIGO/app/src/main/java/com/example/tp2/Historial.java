@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Historial extends AppCompatActivity {
@@ -64,6 +66,13 @@ public class Historial extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        hiloCarg.stop();
+        try
+        {
+            hiloCarg.stop();
+        }catch (Exception ex)
+        {
+
+        }
+
     }
 }
